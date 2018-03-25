@@ -1,0 +1,47 @@
+<div class="panel-block">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3">
+              <app-left-nav-categories></app-left-nav-categories>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9" *ngIf="isLoadRequest">
+                <div class="info" *ngIf="products.length === 0">
+                    <p><i class="fas fa-info-circle"></i> No se encontraron productos para esta busqueda </p>
+                  </div>
+                  <div *ngIf="products.length > 0">
+                    <div class="mg-b-20">
+                        <div class="row  middle-xs">
+                            <div class="col-xs-2">
+                              <label>Ordenar por:</label>
+                              <span class="icon-order" (click)="changeDirectionOrder()">
+                                <i *ngIf="!isUp" class="fas fa-sort-amount-down"></i>
+                                <i *ngIf="isUp" class="fas fa-sort-amount-up"></i>
+                              </span>
+                            </div>
+                            <div class="col-xs-6">
+                                <mz-select-container >
+                                    <select mz-select
+                                            class="classic-select"
+                                            (change)="onChangeSelect($event.target.value)"
+                                            id="options-select"                              
+                                            [placeholder]="'Ordenar productos por:'"
+                                    >
+                                      <option value="price">Precio</option>        
+                                      <option value="quantity">Cantidad</option>
+                                      <option value="available">Disponibilidad</option>
+                                    </select>
+                                  </mz-select-container>
+                            </div>
+                          </div>
+                    </div>
+
+                      <app-product  [product]="product" *ngFor="let product of products | orderBy: order"></app-product>
+                  </div>
+                  
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

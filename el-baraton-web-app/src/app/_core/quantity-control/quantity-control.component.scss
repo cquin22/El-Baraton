@@ -1,0 +1,55 @@
+@import "../../../styles/variables";
+.add-value-to-quantity {
+  color: #777;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  span{
+    color: #666;
+  }
+  &.big{
+    span{
+      font-size: 40px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    i{
+      font-size: 17px;
+      padding: 18px;
+    }
+  }
+
+  &.small{
+    span{
+      font-size: 13px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    i{
+      font-size: 10px;
+      padding: 0px;
+    }
+  }
+
+  span, i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  i{
+    cursor: pointer;
+    &:hover{
+      color: $alternative-color;
+    }
+    &.blocked{
+      color: #d6d6d6;
+      cursor: not-allowed;
+      &:hover{
+        color: #D6D6D6;
+      }
+    }
+
+  }
+}

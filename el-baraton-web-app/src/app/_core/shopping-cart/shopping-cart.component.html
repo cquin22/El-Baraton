@@ -1,0 +1,118 @@
+<a (click)="toggleSummary()" class="link animated" [ngClass]="{'shake': itemIsAdd}">
+  <span class="quantity" *ngIf="items">{{items.length}}</span>
+  <div class="icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+  <span>Mi pedido</span>
+</a>
+
+<div class="purchase-summary-box animated" *ngIf="showSummary" [ngClass]="{'fadeInRight': showSummary, '' : !showSummary}">
+  <div class="load-box" *ngIf="isRequest">
+    <app-loader class="mg-t-10 load-personality"></app-loader>
+    <p>Estamos procesando el pago con payu latam, en segundos sera dirigido a la pasarela de pago</p>
+  </div>
+  <div class="selection-content animated fadeIn" *ngIf="showAdditionalOptions && !isRequest">
+    <div class="edit-buy" (click)="editTX()">
+      <i class="fas fa-edit"></i> Editar mi compra
+    </div>
+    <div class="selection box-cash-on-delivery" (click)="goToPaymentAlternative()">
+        <div>
+          <i class="far fa-money-bill-alt"></i>
+        </div>
+        <h3>Pago contra entrega o consignación bancaria</h3>
+        <p><strong>Total: {{total | amountFormatter:'currency'}}</strong> Si no cuentas con medios electrónicos para pagar, puedes realizar el pedido y pagarlo contra entrega o realizar una consignación bancaria</p>
+    </div>
+    <div class="selection " (click)="addTransaction()">
+      <div>
+        <i class="far fa-credit-card"></i>
+      </div>
+      <h3>Transacción en línea</h3>
+      <p><strong>Total: {{total | amountFormatter:'currency'}}</strong>  Puedes usar tus medios de pago preferidos para pago en línea, como tarjeta de credito, pagos por PSE, giros por efecty o baloto</p>
+    </div>
+  </div>
+  <div class="head-purchase">
+    <i class="fa fa-times-circle" (click)="toggleSummary()" aria-hidden="true"></i>
+    <div class="head-a">
+      <h3>Mi pedido</h3>
+    </div>
+    <div class="head-b">
+      <i class="fa fa-map-marker" aria-hidden="true"></i> Envios solo Bogotá
+    </div>
+  </div>
+  <div class="not-content-box" *ngIf="items.length === 0">
+    <i class="fa fa-info-circle" aria-hidden="true"></i>
+    <p>Aun no añades ningun producto a tu pedido, para hacer uno selecciona la referencia de el producto que buscas y dale click en añadir pedido</p>
+  </div>
+  <div id="style-4" *ngIf="items.length > 0" class="content-purchase">
+    <div class="item-purchase animated" *ngFor="let item of items ; let i = index" [ngClass]="{'fadeOutRight': selectedItemId === item.id}">
+      <i (click)="removeItem(item.id)" class="fas fa-trash icono-right"></i>
+      <div class="row middle-xs">
+        <div class="col-xs-2 text-center box-quantity">
+          <app-quantity-control [size]="'small'" [selectQuantity]="item.quantity" (changeValue)="changeValueQuantity($event, i)"></app-quantity-control>
+        </div>
+        <div class="col-xs-2">
+          <img [src]="item.miniature">
+        </div>
+        <div class="col-xs-4 info">
+          <p>{{item.title}}</p>
+          <span>{{item.weight}}</span>
+        </div>
+        <div class="col-xs-3" style="padding-right: 8px">
+          <span>{{item.totalPrice | amountFormatter:'currency'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <i class="fas fa-shipping-fast"></i>
+  <div  *ngIf="items.length > 0" class="summary">
+    <div class="row">
+      <div class="col-xs-6 text-left">
+        <span> Sub total</span>
+      </div>
+      <div class="col-xs-6 text-right price-summary">
+        {{subTotal | amountFormatter:'currency'}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 text-left">
+        <span> Costo de envió</span>
+      </div>
+      <div class="col-xs-6 text-right price-summary">
+        {{5000 | amountFormatter:'currency'}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 text-left">
+        Total
+      </div>
+      <div class="col-xs-6 text-right price-summary">
+        {{total | amountFormatter:'currency'}}
+      </div>
+    </div>
+  </div>
+  <div class="box-button-summary" (click)="selectPayFormat()"  *ngIf="items.length > 0">
+    <div class="button-summary animated" >
+      <span class="text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Realizar pedido</span>
+      <span class="total-box">{{total | amountFormatter:'currency'}}</span>
+    </div>
+  </div>
+  <div ngNonBindable>
+    <form method="post" id="payuForm" action="***">
+      <input id="merchantId" name="merchantId" type="hidden"/>
+      <input id="referenceCode" name="referenceCode" type="hidden"/>
+      <input id="description" name="description" type="hidden"/>
+      <input id="amount" name="amount" type="hidden"/>
+      <input id="tax" name="tax" type="hidden"/>
+      <input id="taxReturnBase" name="taxReturnBase" type="hidden"/>
+      <input id="signature" name="signature" type="hidden"/>
+      <input id="accountId" name="accountId" type="hidden"/>
+      <input id="currency" name="currency" type="hidden"/>
+      <input id="responseUrl" name="responseUrl" type="hidden" value=""/>
+      <input id="confirmationUrl" name="confirmationUrl" type="hidden" value=""/>
+      <input id="buyerEmail" name="buyerEmail" type="hidden"/>
+      <input id="buyerFullName" name="buyerFullName" type="hidden"/>
+      <input id="shippingAddress" name="shippingAddress" type="hidden"/>
+      <input id="shippingCity" name="shippingCity" type="hidden"/>
+      <input id="shippingCountry" name="shippingCountry" value="CO" type="hidden"/>
+      <input id="test" name="test" type="hidden"/>
+    </form>
+  </div>
+</div>

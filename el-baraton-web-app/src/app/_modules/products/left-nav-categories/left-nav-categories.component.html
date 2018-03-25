@@ -1,0 +1,26 @@
+<aside class="box-aside">
+
+    <div *ngIf="categories">
+        <div class="list-category"  *ngFor="let category of categories" (click)="selectCategory(category.sublevels, category.id)">
+            <i class="fas fa-angle-down" *ngIf="category.sublevels"></i>
+            {{category.name}}
+        </div>
+    </div>
+    <div class="seletion-submenu animated fadeInLeft" *ngIf="selectedCategory && !resetInit">
+        <div class="list-category" (click)="back()">
+            Anterior <i class="fas fa-angle-right"></i>
+        </div>
+
+
+        <div class="animated fadeInLeft" *ngIf="selectedCategory">
+            <div class="list-category"   *ngFor="let sub of selectedCategory.sublevels" (click)="selectCategory(sub, sub.id)">
+                <i class="fas fa-angle-down" *ngIf="sub.sublevels"></i>
+                {{sub.name}}
+            </div>
+        </div>
+
+    </div>
+
+</aside>
+
+

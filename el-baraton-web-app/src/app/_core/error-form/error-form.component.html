@@ -1,0 +1,18 @@
+<div class="error" *ngIf="!form.controls[controlName].valid && (form.controls[controlName].dirty) || ((isSubmittedForm || isPasted) && !form.controls[controlName].valid && !form.valid) ">
+  <p *ngIf="form.controls[controlName].errors && form.controls[controlName].errors['required']">
+    <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+    <span>Este campo es requerido</span>
+  </p>
+  <p *ngIf="form.controls[controlName].errors && (form.controls[controlName].errors['email'] && !form.controls[controlName].errors['required'])">
+    <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+    <span>Este campo no es un email valido</span>
+  </p>
+  <p *ngIf="form.controls[controlName].errors && form.controls[controlName].errors['requiredTrue']">
+    <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
+    <span>Este campo tm</span>
+  </p>
+  <p *ngIf="form.controls[controlName].errors && form.controls[controlName].errors['maxlength']">
+    <i class="material-icons">cancel</i>
+    <span>Ha exedido el maximo número de caracteres para este campo</span>
+  </p>
+</div>

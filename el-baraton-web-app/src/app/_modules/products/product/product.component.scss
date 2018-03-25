@@ -1,0 +1,46 @@
+@import "../../../../styles/variables";
+.product{
+    width: 30%;
+    height: auto;
+    border: 1px solid #eee;
+    padding: 20px;
+    display: inline-block;
+    margin-right: 2px;
+    margin-top: 2px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    h3{
+        text-transform: uppercase;
+        color: #444;
+        font-size: 28px
+    }
+    .price{
+        font-size: 50px;
+        font-weight: lighter;
+        color: $primary_color;
+    }
+
+    .stock{
+        font-style: italic;
+        color: #999;
+    }
+    &:hover{
+        background-color: $alternative_color;
+        color: #fff;
+        h3{
+            color: #fff;
+        }
+        .price{
+            color: #fff;
+        }
+    
+        .stock{
+            color: #fff;
+        }
+    }
+
+}

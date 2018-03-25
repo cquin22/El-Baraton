@@ -1,0 +1,118 @@
+@import "../../../styles/variables";
+
+
+.bg-header{
+  background-color: #f3f3f3;
+  height: 88px;
+  border-bottom: 3px solid #222;
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  -webkit-transition:all 1s ease-out;  /* Chrome y Safari */
+  -o-transition:all 1s ease-out;  /* Opera */
+  -moz-transition:all 1s ease-out;  /* Mozilla Firefox */
+  -ms-transition:all 1s ease-out;   /* Internet Explorer */
+  transition:all 1s ease-out;  /* W3C */
+  width: 100%;
+  &.fixed{
+    position: fixed;
+    width: 100%;
+    z-index: 300;
+    -webkit-transition:all 1s ease-out;  /* Chrome y Safari */
+    -o-transition:all 1s ease-out;  /* Opera */
+    -moz-transition:all 1s ease-out;  /* Mozilla Firefox */
+    -ms-transition:all 1s ease-out;   /* Internet Explorer */
+    transition:all 1s ease-out;  /* W3C */
+    background-color: #484848;
+    border-bottom: 3px solid $alternative-color;
+  }
+}
+
+.top-header{
+  padding: 3px;
+}
+
+
+
+
+.top-links{
+  text-align: right;
+  li{
+    display: inline-block;
+    font-size: 11px;
+    a{
+      color: #201f1f;
+      text-transform: lowercase;
+      text-decoration: underline;
+      cursor: pointer;
+      i{
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+.round-contact{
+  text-align: left;
+  padding-top: 14px;
+  .image{
+    vertical-align: middle;
+    display: inline-block;
+
+    img{
+      border-radius: 50%;
+      border: 2px solid $primary-color;
+      width: 56px;
+    }
+  }
+  .info{
+    vertical-align: middle;
+    width: 140px;
+    display: inline-block;
+    margin-left: 4px;
+    p{
+      color: white;
+      margin: 0;
+      &.primary-text{
+        font-family: $text;
+        font-size: 18px;
+        font-weight: lighter;
+      }
+      &.sub{
+        font-style: italic;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+.logo{
+  text-align: center;
+  position: relative;
+  span{
+    color: white;
+    position: absolute;
+    left: 12px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  img{
+    width: 200px;
+    cursor: pointer;
+  }
+}
+
+
+@media screen and (max-width: 1220px) {
+  .box-contact-info{
+    display: none;
+  }
+
+  .search-nav{
+    padding: 15px;
+  }
+
+
+}

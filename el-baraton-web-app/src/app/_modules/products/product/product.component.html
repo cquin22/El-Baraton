@@ -1,0 +1,19 @@
+<div class="product animated fadeIn">
+  <h3>{{product.name}}</h3>
+  <span class="price">{{product.price | amountFormatter:'currency'}}</span>
+  <div class="stock">
+    {{product.available | json}}
+    <span>Disponibilidad restante: {{product.quantity}} - (categoria: {{product.sublevel_id}})</span>
+  </div>
+  <div class="action">
+      <div class="col-xs-12 col-sm-12 col-md-8 content-button">
+          <a class="button" (click)="addToCart()" role="button">
+            <span>Agregar</span>
+            <div class="icon">
+              <i class="fa fa-cart-arrow-down"></i>
+              <i class="fa fa-check"></i>
+            </div>
+          </a>
+        </div>
+  </div>
+</div>

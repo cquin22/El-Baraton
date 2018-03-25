@@ -1,0 +1,47 @@
+<div class="bg-header" [ngClass]="{ 'fixed': pageYOffset > 76}">
+        <div class="row middle-xs ">
+          <div class="col-xs-12 col-sm-12 col-md-2 logo" >
+            <span class="hide-on-large-only" id="btn-sidenav-demo"><i class="fas fa-bars"></i></span>
+            <img src="./assets/primary-logo.png" [routerLink]="['']" />
+            <div class="shop-c hide-on-large-only">
+              <app-shopping-cart></app-shopping-cart>
+            </div>
+        </div>
+        <div class="col-xs-4 hide-on-small-only hide-on-med-only" >
+            <app-search></app-search>
+         
+        </div>
+        <div class="col-xs-5 without-margin hide-on-small-only hide-on-med-only">
+          <div class="row end-xs">
+            <div class="col-xs-5 without-margin hide-on-small-only hide-on-med-only">
+              <app-shopping-cart></app-shopping-cart>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<mz-sidenav
+  [id]="'sidenav-demo'"
+  [collapseButtonId]="'btn-sidenav-demo'">
+  <!--<div class="nav-menu-header">-->
+    <!--header-->
+  <!--</div>-->
+  <mz-sidenav-collapsible-content>
+    <div class="search-nav">
+      <app-search ></app-search>
+    </div>
+    <mz-sidenav-link>
+      <mz-sidenav-divider></mz-sidenav-divider>
+      <a href="#/panel/registro" class="waves-effect">Crear cuenta </a>
+    </mz-sidenav-link>
+    <mz-sidenav-link>
+      <a href="#/panel/ingresar" class="waves-effect">Ingresar</a>
+    </mz-sidenav-link>
+    <mz-sidenav-link>
+      <a href="#/contacto/registro-de-datos" class="waves-effect">Cuentanos</a>
+    </mz-sidenav-link>
+  </mz-sidenav-collapsible-content>
+</mz-sidenav>
+
+
