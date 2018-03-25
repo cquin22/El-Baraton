@@ -23,7 +23,7 @@
     -moz-transition:all 1s ease-out;  /* Mozilla Firefox */
     -ms-transition:all 1s ease-out;   /* Internet Explorer */
     transition:all 1s ease-out;  /* W3C */
-    background-color: #484848;
+    background-color: $alternative_color;
     border-bottom: 3px solid $alternative-color;
   }
 }
@@ -91,7 +91,7 @@
   text-align: center;
   position: relative;
   span{
-    color: white;
+    color: $primary_color;
     position: absolute;
     left: 12px;
     top: 20px;
@@ -99,7 +99,7 @@
     cursor: pointer;
   }
   img{
-    width: 200px;
+    width: 156px;
     cursor: pointer;
   }
 }
@@ -116,3 +116,12 @@
 
 
 }
+
+@media screen and (max-width: $large) {
+  .logo{
+    img{
+      padding-top: 16px;
+    }
+  }
+}
+

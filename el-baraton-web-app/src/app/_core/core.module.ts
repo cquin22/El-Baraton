@@ -24,6 +24,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { FormsModule } from '@angular/forms';
 import { BigdecimalInputDirective } from '../_utils/bigdecimal-input.directive';
 import { QuantityControlComponent } from './quantity-control/quantity-control.component';
+import { AdvancdSearchComponent } from './advancd-search/advancd-search.component';
 
 
 
@@ -68,6 +69,7 @@ import { QuantityControlComponent } from './quantity-control/quantity-control.co
     BigdecimalInputDirective,
     AmountFormatPipe,
     QuantityControlComponent,
+    AdvancdSearchComponent
 
   ],
   schemas: [
@@ -103,6 +105,7 @@ import { QuantityControlComponent } from './quantity-control/quantity-control.co
     BigdecimalInputDirective,
     AmountFormatPipe,
     QuantityControlComponent,
+    AdvancdSearchComponent
   ]
 })
 export class CoreModule { }

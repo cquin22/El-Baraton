@@ -137,10 +137,43 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 	}
 }
 
+.app-btn{
+	background-color: $primary-color !important;
+	font-family: $text;
+	font-size: 20px !important;
+	font-weight: lighter;
+	letter-spacing: 2px !important;
+	i{
+	  vertical-align: bottom !important;
+	}
+	&.block{
+	  display: block;
+	}
+}
+  
+.sm-link-btn{
+	background-color: $primary-color;
+    padding: 9px;
+    font-size: 14px;
+    font-weight: lighter;
+    border-radius: 3px;
+    display: block;
+    margin-top: 12px;
+    color: #fff;
+    cursor: pointer;
+    width: 170px;
+    text-align: center;
+}
+
 
 @media screen and (max-width: $large) {
   .content-button{
     margin-top: 40px;
     margin-bottom: 40px;
   }
+
+  	.button {
+		left: 0;
+		margin-left: 0;
+	}	
 }

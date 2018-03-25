@@ -25,6 +25,7 @@ export class ProductComponent implements OnInit {
     let itemShop = new ItemShop();
     itemShop.id = this.product.id;
     itemShop.title = this.product.name;
+    itemShop.price = this.product.price; 
     itemShop.totalPrice = this.product.price;
     itemShop.quantity = 1;
 

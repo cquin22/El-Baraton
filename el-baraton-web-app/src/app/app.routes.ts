@@ -20,10 +20,7 @@ const AppRoutes: Routes = [
     loadChildren: () => ProductsModule
   },
 
-  {
-    path: 'error',
-    loadChildren: './_modules/system-errors/system-errors.module#SystemErrorsModule'
-  },
+
   {
     path: '**',
     redirectTo: '/error/page-not-found'

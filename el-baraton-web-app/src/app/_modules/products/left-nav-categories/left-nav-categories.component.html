@@ -1,5 +1,8 @@
+<div class="aside-title">
+        <h2>Categorías</h2>
+        <div (click)="resetCategories()" class="icon">Todos<i class="fas fa-sync-alt"></i></div>
+</div>
 <aside class="box-aside">
-
     <div *ngIf="categories">
         <div class="list-category"  *ngFor="let category of categories" (click)="selectCategory(category.sublevels, category.id)">
             <i class="fas fa-angle-down" *ngIf="category.sublevels"></i>

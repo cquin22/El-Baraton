@@ -251,9 +251,6 @@
   background-color: #fff;
   padding: 12px;
   border-top: 2px dashed #eee;
-  position: fixed;
-  bottom: 0;
-  width: 446px;
   .button-summary{
     display: block;
     background-color: $primary-color;
@@ -343,5 +340,9 @@
     position: absolute;
     right: 0;
     top: 5px;
+  }
+
+  .purchase-summary-box{
+    width: 336px;
   }
 }

@@ -343,37 +343,7 @@ a{
   text-align: right;
 }
 
-.app-btn{
-  background-color: $primary-color !important;
-  font-family: $text;
-  font-size: 20px !important;
-  font-weight: lighter;
-  letter-spacing: 2px !important;
-  i{
-    vertical-align: bottom !important;
-  }
-  &.block{
-    display: block;
-  }
-}
 
-.app-btn-white{
-  background-color: white !important;
-  font-family: $titles;
-  color: #666 !important;
-}
-
-.app-btn-facebook{
-  background-color: $facebook-color !important;
-  font-family: $text;
-  color: white !important;
-}
-
-.app-btn-google{
-  background-color: $google-color !important;
-  font-family: $text;
-  color: white !important;
-}
 
 .btn-block{
   width: 100%;
@@ -491,11 +461,50 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   z-index: 0;
 }
 
+.aside-title{
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  h2{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .icon{
+    position: absolute;
+    cursor: pointer;
+    right: 8px;
+    top: 15px;
+    font-size: 14px;
+    color: $primary_color;
+    i{
+      font-size: 20px;
+      vertical-align: middle;
+      margin-left: 12px;
+    }
+  }
+}
 
 .dropdown-content{
   width: 178px;
 }
 
+
+.box-price{
+  position: relative;
+  input{
+    padding-left: 40px !important;
+  }
+  i{
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    padding: 9px;
+    cursor: pointer;
+    color: #666;
+    background: white;
+  }
+}
 
 .dropdown-content li {
   clear: both;

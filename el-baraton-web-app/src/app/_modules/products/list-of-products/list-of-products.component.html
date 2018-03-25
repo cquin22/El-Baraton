@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-3">
               <app-left-nav-categories></app-left-nav-categories>
+              <app-advancd-search class="hide-on-small-only hide-on-med-only" [idCheck]="'List'"></app-advancd-search>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-9" *ngIf="isLoadRequest">
                 <div class="info" *ngIf="products.length === 0">

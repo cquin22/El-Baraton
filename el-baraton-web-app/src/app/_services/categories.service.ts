@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {Http, RequestOptions, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
-import {Brand} from "../model/brand.model";
 import {Product} from "../model/product.model";
 
 

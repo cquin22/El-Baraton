@@ -4,7 +4,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ProductService } from './_services/product.service';
-import { ProcessTransactionService } from './_services/process-transaction.service';
 import { AppRoutesModule } from './app.routes';
 import { ShoppingCartNotificationService } from './_store-notifications/shoping-cart-notification.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -29,7 +28,6 @@ import {NgPipesModule} from 'ngx-pipes';
   ],
   providers: [
     ProductService,
-    ProcessTransactionService,
     ShoppingCartNotificationService,
     SelectCategoriesNotificationService
   ],

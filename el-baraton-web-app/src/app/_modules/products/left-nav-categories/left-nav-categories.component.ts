@@ -5,6 +5,7 @@ import { ElementRef } from '@angular/core/src/linker/element_ref';
 import { ViewChild } from '@angular/core/src/metadata/di';
 import * as $ from 'jquery';
 import { ProductService } from '../../../_services/product.service';
+import { Search } from '../../../model/search.model';
 
 @Component({
   selector: 'app-left-nav-categories',
@@ -57,6 +58,10 @@ export class LeftNavCategoriesComponent implements OnInit {
     
   }
 
+  public resetCategories(){
+    this.productService.filterProductsByUserSearch();
+  }
+
   public selectCategory(category: any, id: number){
     if(category.length === 1 && category[0].sublevels){
       this.selectedCategory = null;
@@ -81,10 +86,9 @@ export class LeftNavCategoriesComponent implements OnInit {
       this.history[this.count] = this.selectedCategory;
     }
 
-
-    this.productService.getAllProducts().subscribe(products =>{
-      this.productService.filterProductsByCategory(id, products);
-    });
+    let search = new Search();
+    search.sublevelId = id;
+    this.productService.filterProductsByUserSearch(search);
 
   }
 

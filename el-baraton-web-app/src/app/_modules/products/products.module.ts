@@ -13,6 +13,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { NgPipesModule } from 'ngx-pipes';
 
 
+
 @NgModule({
   imports: [
     CommonModule,

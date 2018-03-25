@@ -3,7 +3,7 @@ import {ItemShop} from "../../model/item-shop.model";
 import {Product} from "../../model/product.model";
 import { ShoppingCartNotificationService } from '../../_store-notifications/shoping-cart-notification.service';
 import {Transaction} from "../../model/transaction-model";
-import {ProcessTransactionService} from "../../_services/process-transaction.service";
+
 
 import {Router} from "@angular/router";
 const SHIPPING_COST = 5000;
@@ -33,7 +33,6 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor(
     public shoppingCartNotificationService: ShoppingCartNotificationService,
-    private procesTransaction: ProcessTransactionService,
     private router: Router
   ) {
   }
@@ -113,15 +112,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
 
-  public joinDescription(): string{
-    let description = [];
-    for(let item of this.items ){
-      let des = item.brand + "/" + item.title + "/" + item.weight;
-      description.push(des);
-    }
-
-    return description.join();
-  }
 
 
   public selectPayFormat(){
@@ -134,12 +124,6 @@ export class ShoppingCartComponent implements OnInit {
 
 
 
-  public addTransaction(){
-    this.isRequest = true;
-    let transaction = new Transaction();
-    transaction.amount = this.total;
-    transaction.description = this.joinDescription();
-  }
 
 
 }

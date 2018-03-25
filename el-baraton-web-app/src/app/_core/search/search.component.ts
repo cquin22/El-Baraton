@@ -1,5 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import { ProductService } from '../../_services/product.service';
+import { Search } from '../../model/search.model';
 
 
 @Component({
@@ -13,6 +15,7 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private productService: ProductService
 
   ) { }
 
@@ -29,7 +32,9 @@ export class SearchComponent implements OnInit {
 
   public searchByWord(){
     if(this.search.length > 2){
-
+      let search = new Search();
+      search.word = this.search;
+      this.productService.filterProductsByUserSearch(search);
     }
   }
 

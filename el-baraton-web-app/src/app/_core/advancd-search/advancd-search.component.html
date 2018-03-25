@@ -1,0 +1,84 @@
+<div class="aside-title">
+    <h2>Filtros</h2>
+    <div (click)="resetFilters(true)" class="icon">Restaurar filtros<i class="fas fa-sync-alt"></i></div>
+</div>
+<div class="bg-filter">
+    <div class="divider-filter">
+      <div class="head-filter">
+          <h3>Disponibilidad</h3>          
+      </div>
+      <div class="control">
+        <div class="row">
+            <div class="col-xs-12">
+                <mz-checkbox-container>
+                    <input mz-checkbox
+                      [label]="'Disponibles'"
+                      [(ngModel)]="searchModel.available"
+                      [id]="idCheck"
+                      (change)="onChangeAvailable($event)"
+                      filledIn=true
+                      type="checkbox">
+                  </mz-checkbox-container>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="bg-filter">
+    <div class="divider-filter">
+      <div class="head-filter">
+          <h3>Precio</h3>          
+      </div>
+      <div class="control">
+          <div class="row">
+              <div class="col-xs-6">
+                  <label>Desde</label>
+                  <div class="box-price">
+                      <input class="classic-input" [(ngModel)]="searchModel.priceRange.from" type="number" >
+                      <i class="fas fa-dollar-sign"></i>
+                  </div>
+              </div>
+              <div class="col-xs-6">
+                  <label>Hasta</label>
+                  <div class="box-price">
+                      <input class="classic-input" [(ngModel)]="searchModel.priceRange.to" type="number" >
+                      <i class="fas fa-dollar-sign"></i>
+                  </div>
+              </div>
+              <div class="col-xs-12">
+                <span (click)="setRange()"  class="sm-link-btn">Establecer rango</span>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-filter">
+    <div class="divider-filter">
+      <div class="head-filter">
+          <h3>Cantidad en Stock</h3>          
+      </div>
+      <div class="control">
+          <div class="row">
+              <div class="col-xs-6">
+                  <label>Desde</label>
+                  <div class="box-price">
+                      <input class="classic-input" [(ngModel)]="searchModel.quantityRange.from" type="number" >
+                      <i class="fas fa-arrows-alt-v"></i>
+                  </div>
+              </div>
+              <div class="col-xs-6">
+                  <label>Hasta</label>
+                  <div class="box-price">
+                      <input class="classic-input" [(ngModel)]="searchModel.quantityRange.to" type="number" >
+                      <i class="fas fa-arrows-alt-v"></i>
+                  </div>
+              </div>
+              <div class="col-xs-12">
+                  <span (click)="setRange()"  class="sm-link-btn">Establecer rango</span>
+                </div>
+          </div>
+        </div>
+    </div>
+</div>
