@@ -10,8 +10,6 @@ export class ShopingCartHeaderComponent implements OnInit {
 
   public pageYOffset: number;
 
-  public logged: Boolean;
-
   @HostListener('window:scroll', ['$event'])
   doSomething(event) {
     this.pageYOffset = window.pageYOffset;

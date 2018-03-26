@@ -1,4 +1,4 @@
-<a (click)="toggleSummary()" class="link animated" [ngClass]="{'shake': itemIsAdd}">
+<a (click)="toggleSummary()" class="link animated" [ngClass]="{'shake': itemIsAdd, 'fixed': pageYOffset > 76}">
   <span class="quantity" *ngIf="items">{{items.length}}</span>
   <div class="icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
   <span>Mi pedido</span>
@@ -15,12 +15,13 @@
       <h3>Mi pedido</h3>
     </div>
     <div class="head-b">
-      <i class="fa fa-map-marker" aria-hidden="true"></i> Envios solo Bogotá
+      <i class="fa fa-map-marker" aria-hidden="true"></i> Envíos a nivel nacional
     </div>
   </div>
   <div class="not-content-box" *ngIf="items.length === 0">
-    <i class="fa fa-info-circle" aria-hidden="true"></i>
-    <p>Aun no añades ningun producto a tu pedido, para hacer uno selecciona la referencia de el producto que buscas y dale click en añadir pedido</p>
+    <i class="fas fa-shopping-basket"></i>
+    <h3>Tu canasta está vacía</h3>
+    <p>Te invitamos a volver a nuestras tiendas y agregar productos a tu canasta.</p>
   </div>
   <div id="style-4" *ngIf="items.length > 0" class="content-purchase">
     <div class="item-purchase animated" *ngFor="let item of items ; let i = index" [ngClass]="{'fadeOutRight': selectedItemId === item.id}">
@@ -66,7 +67,7 @@
       </div>
     </div>
   </div>
-  <div class="box-button-summary">
+  <div class="box-button-summary" *ngIf="items.length > 0">
     <div class="button-summary" >
       <span class="text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Realizar pedido</span>
       <span class="total-box">{{total | amountFormatter:'currency'}}</span>

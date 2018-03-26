@@ -1,4 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+/**
+ * AmountFormatter | Pipe
+ *
+ * @description :: Formater number to currency
+ * @author:: Cristian Quintero <cristianqr22@gmail.com>
+ */
+
 
 @Pipe({name: 'amountFormatter'})
 export class AmountFormatPipe implements PipeTransform {
@@ -6,9 +13,7 @@ export class AmountFormatPipe implements PipeTransform {
         if (value === null || value === undefined) {
            return '';
         }
-//        return value.toString().replace(',', '');
        ;
-//    this.value = this.value.replace(/,/g,"");
 
       let prefix = '';
        if (args[0] === 'currency') {

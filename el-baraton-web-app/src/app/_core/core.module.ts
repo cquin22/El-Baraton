@@ -20,7 +20,6 @@ import {
 import 'hammerjs';
 import {ErrorFormComponent} from './error-form/error-form.component';
 import {RouterModule} from '@angular/router';
-import { LoaderComponent } from './loader/loader.component';
 import { FormsModule } from '@angular/forms';
 import { BigdecimalInputDirective } from '../_utils/bigdecimal-input.directive';
 import { QuantityControlComponent } from './quantity-control/quantity-control.component';
@@ -52,9 +51,6 @@ import { AdvancdSearchComponent } from './advancd-search/advancd-search.componen
     MzToastModule,
     MzTooltipModule,
     MzMediaModule,
-    MzProgressModule,
-    MzTextareaModule,
-    MzDatepickerModule,
     FormsModule,
 
 
@@ -65,7 +61,6 @@ import { AdvancdSearchComponent } from './advancd-search/advancd-search.componen
     SearchComponent,
     ShoppingCartComponent,
     ErrorFormComponent,
-    LoaderComponent,
     BigdecimalInputDirective,
     AmountFormatPipe,
     QuantityControlComponent,
@@ -99,7 +94,6 @@ import { AdvancdSearchComponent } from './advancd-search/advancd-search.componen
     MzTooltipModule,
     MzMediaModule,
     MzProgressModule,
-    LoaderComponent,
     MzTextareaModule,
     MzDatepickerModule,
     BigdecimalInputDirective,

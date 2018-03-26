@@ -25,6 +25,13 @@
     transition:all 1s ease-out;  /* W3C */
     background-color: $alternative_color;
     border-bottom: 3px solid $alternative-color;
+    .logo{
+      img{
+        width: 156px;
+        cursor: pointer;
+        filter: brightness(0) invert(1);
+      }
+    }
   }
 }
 

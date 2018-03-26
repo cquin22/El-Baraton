@@ -10,6 +10,12 @@ import { SelectCategoriesNotificationService } from "../_store-notifications/sel
 import { Search } from "../model/search.model";
 
 
+/**
+ * ProductService
+ *
+ * @description :: Service for request to products
+ * @author:: Cristian Quintero <cristianqr22@gmail.com>
+*/
 
 
 @Injectable()
@@ -28,6 +34,12 @@ export class ProductService{
   ) {}
 
 
+  /**
+   *
+   * @description Get all products from products.json
+   * @returns {Observable} any.
+  */   
+
   public getAllProducts(): Observable<any> {
     return this.http.get("./assets/data/products.json")
     .map((res: any) => {
@@ -40,7 +52,14 @@ export class ProductService{
     ); 
   };
 
-  public filterProductsByUserSearch(search?: Search){
+  /**
+   *
+   * @description Filter products from products.json
+   * @param Search
+   * @returns void
+  */  
+
+  public filterProductsByUserSearch(search?: Search) : void{
     let _self = this;
     if(search && search.sublevelId){
       this.selectId = search.sublevelId;
@@ -66,7 +85,7 @@ export class ProductService{
 
     if(search && search.word){
       products = products.filter(function (product) {
-        return product.name.indexOf(search.word)>-1 ;
+        return product.name.toUpperCase().indexOf(search.word.toUpperCase())>-1 ;
       });
     }
 
@@ -79,12 +98,22 @@ export class ProductService{
     this.selectCategoriesNotificationService.setSelectCategory(products);
   }
 
+  /**
+   *
+   * @description Set products
+   * @param Array<Product>
+   * @returns void
+  */ 
   public setProducts(products: Array<Product>){
       this.products = products;
   } 
 
-
-  public getProducts(){
+  /**
+   *
+   * @description Get products
+   * @returns Array<Product>
+  */
+  public getProducts() : Array<Product>{
     return this.products;
   } 
 

@@ -4,58 +4,72 @@ import {Observable} from 'rxjs/Observable';
 import {ItemShop} from "../model/item-shop.model";
 const KEY_SHOP = 'shp';
 
+/**
+ * ShoppingCartNotificationService
+ *
+ * @description :: Storage Shopping cart for push notification between components
+ * @author:: Cristian Quintero <cristianqr22@gmail.com>
+*/
+
 @Injectable()
 export class ShoppingCartNotificationService{
   public store = new Subject();
 
   private items: Array<ItemShop> = [];
 
-  public storedItemsId = [];
+
 
   constructor() {
 
   }
 
-
+  /**
+   *
+   * @description add Item Shop
+   * @param: ItemShop
+   * @returns void
+  */
   public addItem(itemShop: ItemShop){
     //this.items.push(itemShop);
     this.store.next(itemShop);
   }
 
-  public removeItem() {
-    this.store.next(null);
-  }
 
-  public unSubscribe() {
-    this.store.unsubscribe();
-  }
-
+  /**
+   *
+   * @description get Observable subscription
+   * @returns Observable<any>.
+  */
   public getSubscription(): Observable<any> {
     return this.store.asObservable();
   }
 
-  public verifyIdInStore(item: ItemShop): boolean{
-    let stored  = this.getStoreShop();
-    let verify : boolean;
-    for(let itemStored of stored){
-      if(itemStored.id === item.id){
-        verify = true;
-      }
-    }
-
-    return verify;
-  }
-
+  /**
+   *
+   * @description update shopping cart
+   * @param: Array<ItemShop>
+   * @returns void
+  */
   public updateLogShop(items: Array<ItemShop>){
     sessionStorage.removeItem(KEY_SHOP);
     let encryptedShop = btoa(JSON.stringify(items));
     sessionStorage.setItem(KEY_SHOP, encryptedShop);
   }
 
+  /**
+   *
+   * @description reset shopping cart
+   * @returns void
+  */
   public resetShop(){
     sessionStorage.removeItem(KEY_SHOP);
   }
 
+  /**
+   *
+   * @description get shopping cart
+   * @returns: Array<ItemShop>
+  */
   public getStoreShop() : Array<ItemShop>{
     const session = sessionStorage.getItem(KEY_SHOP);
     if(session){

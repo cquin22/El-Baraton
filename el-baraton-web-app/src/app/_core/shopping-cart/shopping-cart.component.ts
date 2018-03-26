@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ItemShop} from "../../model/item-shop.model";
-import {Product} from "../../model/product.model";
 import { ShoppingCartNotificationService } from '../../_store-notifications/shoping-cart-notification.service';
-import {Transaction} from "../../model/transaction-model";
+
 
 
 import {Router} from "@angular/router";
@@ -29,7 +28,7 @@ export class ShoppingCartComponent implements OnInit {
 
   public isRequest: boolean;
 
-  public showAdditionalOptions: boolean;
+  @Input() public pageYOffset: number;
 
   constructor(
     public shoppingCartNotificationService: ShoppingCartNotificationService,
@@ -110,19 +109,6 @@ export class ShoppingCartComponent implements OnInit {
     }
     return -1;
   }
-
-
-
-
-  public selectPayFormat(){
-    this.showAdditionalOptions = true;
-  }
-
-  public editTX(){
-    this.showAdditionalOptions = false;
-  }
-
-
 
 
 
